@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}" />
+    <title> سوق الكمبيوتر - Computer Souq </title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    </section>
+    <section class="Projects" id="Projects">
+      <h2 class="title"> بيع من المخزن الرئيسي </h2>
+      <div class="content">
+        <div class="project-card">
+          <div class="project-img">
+            <img src="" style="width: 280px;  margin-left: 35px; ">
+          </div>
+          <div class="project-info" style="margin: 20px;">
+            <strong class="proinfo" style="font-size: xx-large;"> لابتوب استعمال </strong>
+            <strong class="protitle">
+              <a href="{% url 'usedinvoice' %}" class="M" style="font-size: x-large;"> بيع الأن </a>
+            </strong>
+          </div>
+        </div>
+        <br>
+        <div class="project-card">  
+          <div class="project-img">
+            <img src="">
+          </div>
+          <div class="project-info" style="margin: 20px;">
+            <strong class="proinfo" style="font-size: xx-large;"> لابتوب جديد </strong>
+            <strong class="protitle">
+              <a href="{% url 'newinvoice' %}" class="M" style="font-size: x-large;"> بيع الأن </a>
+            </strong>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img">
+            <img src="">
+          </div>
+          <div class="project-info" style="margin: 20px;">
+            <strong class="proinfo" style="font-size: xx-large;"> رامات </strong>
+            <strong class="protitle">
+              <a href="#" class="M" style="font-size: x-large;"> بيع الأن </a>
+            </strong>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img">
+            <img src="">
+          </div>
+          <div class="project-info" style="margin: 20px;">
+            <strong class="proinfo" style="font-size: xx-large;"> شنط </strong>
+            <strong class="protitle">
+              <a href="#" class="M" style="font-size: x-large;"> بيع الأن </a>
+            </strong>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img">
+            <img src="">
+          </div>
+          <div class="project-info" style="margin: 20px;">
+            <strong class="proinfo" style="font-size: xx-large;"> اكسسوارات </strong>
+            <strong class="protitle">
+              <a href="#" class="M" style="font-size: x-large;"> بيع الأن </a>
+            </strong>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img">
+            <img src="">
+          </div>
+          <div class="project-info" style="margin: 20px;">
+            <strong class="proinfo" style="font-size: xx-large;"> مساحات تخزين </strong>
+            <strong class="protitle">
+              <a href="#" class="M" style="font-size: x-large;"> بيع الأن </a>
+            </strong>
+          </div>
+        </div>
+    </section>
+    <div class="sidebar close">
+      <div class="logo-details">
+        <i class='bx bxs-dashboard'></i>
+        <span class="logo_name">Dashboard</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="{% url 'management' %}">
+            <i class='bx bx-home'></i>
+            <span class="link_name">المخزن</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li>
+              <a class="link_name" href="{% url 'management' %}">المخزن</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="iocn-link">
+            <a href="{% url 'invoicesfromstock' %}">
+              <i class='bx bx-receipt'></i>
+              <span class="link_name"> بيع من المخزن الرئيسي </span>
+            </a>
+          </div>
+          <ul class="sub-menu">
+            <li>
+              <a class="link_name" href="{% url 'invoicesfromstock' %}"> بيع من المخزن الرئيسي </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class='bx bx-receipt'></i>
+              <span class="link_name"> بيع من خارج المخزن </span>
+            </a>
+          </div>
+          <ul class="sub-menu">
+            <li>
+              <a class="link_name" href="#"> بيع من خارج المخزن </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class='bx bx-package'></i>
+              <span class="link_name"> إضافة منتاجات </span>
+            </a>
+          </div>
+          <ul class="sub-menu">
+            <li>
+              <a class="link_name" href="#"> إضافة منتاجات </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class='bx bxs-calculator'></i>
+              <span class="link_name"> حساب الارباح </span>
+            </a>
+          </div>
+          <ul class="sub-menu">
+            <li>
+              <a class="link_name" href="#"> حساب الارباح </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="profile-details">
+            <div class="profile-content">
+              <a class="logout" href="{% url 'account_logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <section class="home-section">
+      <nav class="navbar">
+        <i class='bx bx-menu'></i>
+        <div class="navbar-brand"></div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="{% url 'management' %}" class="nav-link">الصفحة الرئيسية- Home Page</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <form id="logout-form" action="{% url 'account_logout' %}" method="POST" style="display: none;"> {% csrf_token %} <script src="{% static 'js/dashboard.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}" />
+    <title> سوق الكمبيوتر - Computer Souq </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Erorr.css' %}" />
+  </head>
+  <body>
+    <div class="d-flex align-items-center justify-content-center vh-100">
+      <div class="text-center">
+        <h1 class="display-1 fw-bold">403</h1>
+        <p class="fs-3">
+          <span class="text-danger">Opps!</span> 403 Forbidden Error
+        </p>
+        <p class="lead">عذراً غير مسموح بالدخول ,الرجاء التواصل مع احد المطورين </p>
+        <a href="https://wa.me/+201228120928" class="btn btn-primary">Go To What'sapp</a>
+        <a class="btn btn-primary" href="{% url 'account_logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        <a href="{% url 'management' %}" class="btn btn-primary">Back To Dashboard</a>
+      </div>
+    </div>
+    <br>
+    <form id="logout-form" action="{% url 'account_logout' %}" method="POST" style="display: none;"> {% csrf_token %} </form>
+  </body>
+</html>

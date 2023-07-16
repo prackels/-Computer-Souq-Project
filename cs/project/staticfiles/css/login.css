@@ -1,0 +1,110 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap');
+}
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+html {
+  direction: rtl;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: linear-gradient(147deg,  #1d1b31 0%, #272070 74%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  margin-bottom: 20px;
+  border: none;
+}
+
+.box {
+  border-top-left-radius: 15px; /* حدود مستديرة للجزء العلوي الأيسر بحجم 15 بكسل */
+  border-top-right-radius: 15px; /* حدود مستديرة للجزء العلوي الأيمن بحجم 15 بكسل */
+  border-bottom-left-radius: 20px; /* حدود مستديرة للجزء السفلي الأيسر بحجم 20 بكسل */
+  border-bottom-right-radius: 20px; /* حدود مستديرة للجزء السفلي الأيمن بحجم 20 بكسل */
+  box-shadow:  0 0 10px rgba(171, 8, 8, 0.847);
+  width: 500px;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 10px solid #5100ff;
+  text-align: center;
+  transition: 0.75s;
+}
+.text-muted{
+  font-size:larger;
+}
+.box input[type="text"],
+.box input[type="password"] {
+  font-family: 'Montserrat', sans-serif;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #28207c;
+  padding: 10px 10px;
+  width: 250px;
+  outline: none;
+  color: rgb(0, 0, 0);
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+.box h1 {
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-weight:800;
+}
+.forgot{
+  color:black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.col-md-12{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.checkbox{
+  border: 2px solid#200cff;
+}
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+  width: 300px;
+  border-color:#200cff;
+}
+
+.box input[type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #423b91;
+  padding: 14px 40px;
+  outline: none;
+  color: rgb(0, 0, 0); /* تغيير لون النص إلى اللون الأبيض */
+  border-radius: 24px;
+  transition: 0.25s;
+  font-weight:700;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif; /* إضافة نفس الخط Montserrat */
+}
+
+.box input[type="submit"]:hover {
+  background:#200cff;
+  color: #ffffff;
+}
+
+
+.forgot {
+  text-decoration: underline;
+}

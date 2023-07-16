@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap');
+  }
+body {
+    font-family: 'Montserrat','Cairo';
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    user-select: none;
+}
+
+.text-center {
+    color: #333;
+}
+
+.display-1 {
+    font-size: 80px;
+}
+
+.fs-3 {
+    font-size: 30px;
+}
+
+.lead {
+    font-size: 20px;
+    color: #666;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+
+.btn {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 550;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}

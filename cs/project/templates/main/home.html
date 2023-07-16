@@ -1,0 +1,234 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Start Link Sheat -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Computer Souq-سوق الكمبيوتر</title>
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <!-- End Link Sheat -->
+<body>
+  <!-- Start Header -->
+  <header>
+    <nav>
+
+      <header>
+        <div class="header" id="header">
+          <div class="container">
+            <a class="logo">      
+                 <a href="{% url 'home'%}" class="logo"><img href="asdasdas"  src="{% static 'images/logo.png' %}" class="lg"></a>
+                 <br>
+                 <div class="search-container">
+                  <input type="text" name="search" placeholder="Search..." class="search-input">
+                  <a href="#" class="search-btn" >
+                          <i class="fas fa-search" style="color: black; "></i>      
+                  </a>
+            
+            <ul class="main-nav">
+              <li><a href="{% url 'management' %}">Home</a></li>
+              <li><a href="{% url 'usedinvoice'%}">Products</a></li>
+              <li><a href="{% url 'services' %}">Services</a></li>
+              <li><a href="{% url 'about' %}">About </a></li>
+
+              <div class="social-icond">
+               
+                <a href="#"><i class="fa-solid fa-user" style="margin-right: -150px; color: aliceblue;"></i></a>
+              
+
+
+              </div>
+
+          </div>
+      </header>
+    </nav>
+  </header>
+  <!-- End Header -->
+  <!-- Start Section -->
+  <section class="main swiper mySwiper">
+
+
+    <div class="wrapper swiper-wrapper">
+
+      <div class="slide swiper-slide">
+        <img src="{% static 'images/h.jpg' %}" alt="" class="image" />
+        <div class="image-data">
+          <span class="text">Enjoy the finest coffee drinks.</span>
+          <h2>
+            Enjoy Our Exclusive <br />
+            Coffee and Cocktails
+          </h2>
+          <a href="{% url 'about' %}" class="button">About Us</a>
+        </div>
+      </div>
+      <div class="slide swiper-slide">
+        <img src="{% static 'images/h.jpg' %}" alt="" class="image" />
+        <div class="image-data">
+          <span class="text">We really like what we do.</span>
+          <h2>
+            Coffee Beans with a <br />
+            Perfect Aroma
+          </h2>
+          <a href="{% url 'about' %}" class="button">About Us</a>
+        </div>
+      </div>
+      <div class="slide swiper-slide">
+        <img src="{% static 'images/h.jpg' %}" alt="" class="image" />
+        <div class="image-data">
+          <span class="text">Making Our coffee with lover.</span>
+          <h2>
+            Alluring and Fragrant <br />
+            Coffee Aroma
+          </h2>
+          <a href="{% url 'about' %}" class="button">About Us</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-button-next nav-btn"></div>
+    <div class="swiper-button-prev nav-btn"></div>
+    <div class="swiper-pagination"></div>
+  </section>
+  <!-- End Section -->
+  <!-- Start Cards_New -->
+  <div class="articles" id="articles">
+    <h2 class="main-title">NEW LAPTOP</h2>
+    <div class="container">
+      {% for x in new %}
+      <div class="box">
+        <img src="{{x.Image.url}}" alt="" />
+        <div class="content">
+          <h3>{{x.Brand}} {{ x.Model }}</h3>
+          <h3>{{x.CPU}}</h3>
+          <h3>{{x.Ram_Memory_Type}}</h3>
+          <h3>{{x.Ram_Memory_Size}}</h3>
+          <h3>{{x.HD_Type}}</h3>
+          <h3>{{x.HD_Storage}}</h3>
+          <h3>{{x.HD_Type_Other}}</h3>
+          <h3>{{x.HD_Storage_Other}}</h3>
+          <h3>{{x.Screen_Size}}</h3>
+
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
+        </div>
+        <div class="info">
+          <a href="{% url 'newdetailes' x.id %}">Shop Now</a>
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+      </div>
+      {% endfor %}
+
+  </div>
+  <!-- End Cards_New -->
+<br>
+<!-- Start Cards_Used -->
+<div class="articles" id="articles">
+  <h2 class="main-title">USED LAPTOP</h2>
+  <div class="container">
+    {% for laptop in used %}
+      <div class="box">
+        <img src="{{ laptop.Image.url }}" alt="" />
+        <div class="content">
+          <h3>{{ laptop.Brand }} {{ laptop.Model }}</h3>
+          <h3>{{ laptop.CPU }}</h3>  
+          <h3>{{ laptop.Ram_Memory_Type }}</h3>
+          <h3>{{ laptop.Ram_Memory_Size }}</h3>
+          <h3>{{ laptop.HD_Type }}</h3>
+          <h3>{{ laptop.HD_Storage }}</h3>
+          <h3>{{ laptop.HD_Type_Other }}</h3>
+          <h3>{{ laptop.HD_Storage_Other }}</h3>
+          <h3>{{ laptop.Screen_Size }}</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
+        </div>
+        <div class="info">
+          <a href="{% url 'useddetailes' laptop.id %}">Shop Now</a>
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- End Cards_Used -->
+   <!-- Footer -->
+   <footer class="footer">
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="social-icon">
+      <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/computersouq55">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/compu_souq/?igshid=YmMyMTA2M2Y%3D">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="https://wa.me/+201228120928">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+
+    </ul>
+    <ul class="menu">
+      <li class="menu__item"><a class="menu__link" href="{% url 'home' %}">Home</a></li>
+      <li class="menu__item"><a class="menu__link" href="{% url 'about' %}">About</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+
+    </ul>
+    <p>&copy;2023 Computer Souq | All Rights Reserved</p>
+    <p> Designed By Skillzy </p>
+  </footer>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+    <!-- End Footer -->
+
+
+
+  
+    <!-- Swiper JS -->
+    <script src="{% static 'JS/swiper-bundle.min.js' %}"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+      const button = document.querySelector('.menu-button');
+      const nav = document.querySelector('nav');
+
+      button.addEventListener('click', () => {
+        nav.classList.toggle('open');
+
+      });
+    </script>
+</body>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style_invoicecreate.css' %}">
+    <!-- Iconscout CSS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}" />
+    <title> سوق الكمبيوتر - Computer Souq </title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>New Invoice</h1>
+      <form method="POST" onsubmit="return validateForm()"> {% csrf_token %} <br>
+        <br>
+        <div class="form-group">
+          <label for="product_id">Product ID:</label>
+          <select class="form-control" name="product_id" id="product_id"> {% for product in newlaptop %} <option value="{{ product.id }}">{{ product.id }} {{ product.Brand }} {{ product.Model }}</option> {% endfor %} </select>
+          <p id="product_id_error" class="error-message"></p>
+        </div>
+        <!-- Other fields -->
+        <div class="form-group">
+          <label for="branch">Branch:</label>
+          <select class="form-control" name="branch" id="branch">
+            <option value="computer_souq">Computer Souq</option>
+            <option value="carnival">Carnival</option>
+            <option value="sajed">Sajed</option>
+            <option value="carnival_plus">Carnival Plus</option>
+          </select>
+          <p id="branch_error" class="error-message"></p>
+        </div>
+        <div class="form-group">
+          <label for="customer_name">Customer Name:</label>
+          <input type="text" class="form-control" name="customer_name" id="customer_name">
+          <p id="customer_name_error" class="error-message"></p>
+        </div>
+        <div class="form-group">
+          <label for="customer_phone">Customer Phone:</label>
+          <input type="tel" class="form-control" name="customer_phone" id="customer_phone" pattern="0[0-9]{9,10}">
+          <small class="form-text text-muted">Please Enter a Valid Phone Number (10 or 11 digits).</small>
+          <p id="customer_phone_error" class="error-message"></p>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input type="number" class="form-control" name="quantity" id="quantity" value="1" min="0">
+          <p id="quantity_error" class="error-message"></p>
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" class="form-control" name="price" id="price" min="0" max="300000">
+          <p id="price_error" class="error-message"></p>
+        </div>
+        <div class="form-group">
+          <label for="ram">Ram:</label>
+          <input type="number" class="form-control" name="ram" id="ram" min="0" max="128">
+          <p id="ram_error" class="error-message"></p>
+        </div>
+        <div class="form-group">
+          <label for="hard">Hard:</label>
+          <input type="number" class="form-control" name="hard" id="hard">
+          <p id="hard_error" class="error-message"></p>
+        </div>
+        <div class="form-group">
+          <label for="hard2">Second Hard Disk:</label>
+          <input type="number" class="form-control" name="hard2" id="hard2">
+          <p id="hard2_error" class="error-message"></p>
+        </div>
+        <div class="form-group">
+          <label for="serialnumber">Serial Number:</label>
+          <input type="text" class="form-control" name="serialnumber" id="serialnumber">
+          <p id="serialnumber_error" class="error-message"></p>
+        </div>
+        <br>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+      <br>
+      <a class="btn btn-primary" href="{% url 'account_logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+      <form id="logout-form" action="{% url 'account_logout' %}" method="POST" style="display: none;"> {% csrf_token %} </form>
+    </div>
+    <script src="{% static 'script_invoicecreate.js' %}"></script>
+    <script>
+      function validateForm() {
+        var productID = document.getElementById("product_id").value;
+        var branch = document.getElementById("branch").value;
+        var customerName = document.getElementById("customer_name").value;
+        var customerPhone = document.getElementById("customer_phone").value;
+        var quantity = document.getElementById("quantity").value;
+        var price = document.getElementById("price").value;
+        var ram = document.getElementById("ram").value;
+        var hard = document.getElementById("hard").value;
+        var hard2 = document.getElementById("hard2").value;
+        var serialNumber = document.getElementById("serialnumber").value;
+        var hasError = false;
+        if (productID === "") {
+          document.getElementById("product_id_error").innerHTML = " < span style = 'color: red;' > This Field is Required < /span>";
+          hasError = true;
+        } else {
+          document.getElementById("product_id_error").innerHTML = "";
+        }
+        if (branch === "") {
+          document.getElementById("branch_error").innerHTML = " < span style = 'color: red;' > This Field is Required < /span>";
+          hasError = true;
+        } else {
+          document.getElementById("branch_error").innerHTML = "";
+        }
+        if (customerName === "") {
+          document.getElementById("customer_name_error").innerHTML = " < span style = 'color: red;' > This Field is Required < /span>";
+          hasError = true;
+        } else {
+          document.getElementById("customer_name_error").innerHTML = "";
+        }
+        if (customerPhone === "") {
+          document.getElementById("customer_phone_error").innerHTML = " < span style = 'color: red;' > This Field is Required < /span>";
+          hasError = true;
+        } else {
+          document.getElementById("customer_phone_error").innerHTML = "";
+        }
+        if (quantity === "") {
+          document.getElementById("quantity_error").innerHTML = " < span style = 'color: red;' > This Field is Required < /span>";
+          hasError = true;
+        } else {
+          document.getElementById("quantity_error").innerHTML = "";
+        }
+        if (price === "") {
+          document.getElementById("price_error").innerHTML = " < span style = 'color: red;' > This Field is Required < /span>";
+          hasError = true;
+        } else {
+          document.getElementById("price_error").innerHTML = "";
+        }
+        if (ram === "") {
+          document.getElementById("ram_error").innerHTML = " < span style = 'color: red;' > This Field is Required < /span>";
+          hasError = true;
+        } else {
+          document.getElementById("ram_error").innerHTML = "";
+        }
+        if (hard === "") {
+          document.getElementById("hard_error").innerHTML = " < span style = 'color: red;' > This Field is Required < /span>";
+          hasError = true;
+        } else {
+          document.getElementById("hard_error").innerHTML = "";
+        }
+        if (hasError) {
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+{% load static %} <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      html {
+        direction: rtl;
+      }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/invoices.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}" />
+    <title> سوق الكمبيوتر - Computer Souq </title>
+  </head>
+  <body>
+    <div class="brand-section">
+      <span class="logo navLogo">
+        <img src="{% static 'images/logo2.png' %}" style="width: 150px">
+      </span>
+      <h2 class="company-number">Mohamed Soliman: 01228120928</h2>
+    </div>
+    <div class="body-section">
+      <div class="row">
+        <div class="col-6">
+          <h3 class="sub-heading">اسم العميل: {{invoice_obj.Name}}</h3>
+          <h3 class="sub-heading">رقم العميل: {{invoice_obj.Phone}}</h3>
+          <h3 class="sub-heading">رقم الفاتورة: {{invoice_obj.id}} </h3>
+          <h3 class="sub-heading">تاريخ التحرير: <span id="current-date"></span>
+          </h3>
+          <script>
+            var currentDate = new Date();
+            var day = currentDate.getDate();
+            var month = currentDate.getMonth() + 1;
+            var year = currentDate.getFullYear();
+            var formattedDate = day + '/' + month + '/' + year;
+            document.getElementById("current-date").textContent = formattedDate;
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="body-section">
+      <div class="table-container">
+        <table>
+          <tr>
+            <th scope="col">اسم المنتج</th>
+            <th scope="col">السعر</th>
+            <th scope="col">العدد</th>
+            <th scope="col">الأجمالي</th>
+          </tr>
+          <tr>
+            <th scope="row">
+              <br> Model: {{product.Brand}} {{product.Model}}
+              <br> CPU: {{product.CPU}}
+              <br> RAM: {{product.Ram_Memory_Size}}GB {{product.Ram_Memory_Type}}
+              <br> Hard Disk: {{invoice_obj.HardDisk}}GB {{product.HD_Type}}
+              <br> {% if invoice_obj.HardDisk_Other %} Second Hard Disk: {{invoice_obj.HardDisk_Other}}GB {{product.HD_Type_Other}}
+              <br> {% endif %} GPU: {{product.GPU}} GB <br> Screen: {{product.Screen_Size}}” {{product.Screen_Resulation}}
+              <br> {% if invoice_obj.SN %} S/N:{{ invoice_obj.SN }}
+              <br> {% endif %}
+            </th>
+            <td>{{invoice_obj.Price}}</td>
+            <td>{{invoice_obj.Quantity}}</td>
+            <td>{{Totalprice}}</td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      <h4 class="sub-heading">شروط الضمان </h4>
+      <h2 class="heading">1-. يتم منح ضمان على المنتج الاستعمال شهر واحد، لا يشمل الضمان حدوث مشاكل فى الكهرباء مثل قطع التيار الكهربى او حدوث مشكله فى باور اللاب توب ، و سوء استخدام المنتج .</h2>
+      <h2 class="heading">2. يتم منح ثلاثة اشهر سوفت وير كـــ ( تنزيل برامج – ويندوز ) .</h2>
+      <h2 class="heading">3-. يتم منح ضمان على البطاريه مدة ساعه ونصف في حال ان قلت البطاريه عن ساعه ونصف يتم تغييرها خلال فترة الضمان .</h2>
+      <h2 class="heading">4-. لا يتم استلام المنتج فى حاله فتحه او صيانته خارج مقر الشركة ، والشركة تخلى مسؤوليتها من المنتج فى هذه الحاله .</h2>
+      <h2 class="heading">5- يتم منح 5 أيام لاسبتدال المنتح بمنتج اخر ( اعلى او اقل ) فى الامكانيات بشرط أن يكون الجهاز بحالته الاصلية .</h2>
+      <h2 class="heading">6- في حالة وجود مشكله في الجهاز خلال فترة الضمان يتم اصلاح المشكله او تبديل الجهاز .</h2>
+    </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}"/>
+    <title> سوق الكمبيوتر - Computer Souq </title>
+    <style>
+        html {
+            direction: rtl;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form method="POST" action="{% url 'account_login' %}" class="box">
+                        {% csrf_token %}
+                        <h1>Login</h1>
+                        <p class="text-muted">Please enter your login and password</p>
+                        <input id="id_username" type="text" name="login" placeholder="Username">
+                        <input id="id_password" type="password" name="password" placeholder="Password">
+                        <div class="col-md-12">
+                            <label for="remember">Remember Me</label>
+                            <input type="checkbox" id="remember" name="remember">
+                        </div><br>
+                        <a class="forgot text-muted" href="https://wa.me/+201228120928">If You Forgot The Password Call The Developer</a>
+                        <input type="submit" value="Login" onclick="setNextPage(event)">
+                        <script>
+                            function setNextPage(event) {
+                                event.preventDefault();
+                                var loginForm = document.querySelector('.box');
+                                var nextInput = document.createElement('input');
+                                nextInput.type = 'hidden';
+                                nextInput.name = 'next';
+                                nextInput.value = "/management/";
+                                loginForm.appendChild(nextInput);
+                                loginForm.submit();
+                            }
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
