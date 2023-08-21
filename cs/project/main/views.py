@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from products.models import *
+from ..products.models import *
 
 def home(request):
     useds = used.objects.filter(Active = True, Active_Home=True, Quantity__gte=1 )[:4]
